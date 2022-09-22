@@ -27,7 +27,7 @@ The filename (minus extension) will also be the module name (aka namespace).   S
 **NOTE:** the casing on the filename is important, as it will carry over to the namespace (eg `workOrder.ts` will have the namespace `abc.workOrder`)
 1. `npm run build` 
 # Using the javascript WebResource in a Model Driven form
-[] TODO
+- [ ] TODO
 # Using Fiddler to test 
 In the AutoResponder tab
 1. Check Enable rules
