@@ -6,7 +6,7 @@ This is a template for transpiling typescript into javascript that will be unsed
 * Automatic namespaces (using the publisher prefix & filename)
 * Code bundling to allow code re-use  
 * Code bundling to reduces the number webresources that need to be included on a form to 1
-* (FUTURE) es-linting specific to the PowerPlatform
+* es-linting specific to the PowerPlatform
 ### How it works
 1. You create **TyepScript** (*.ts) files in the `src\code` folder.   
 1. npm is then used execute webpack
@@ -15,6 +15,7 @@ This is a template for transpiling typescript into javascript that will be unsed
 * node & npm  (https://nodejs.org/en/download/)
 * typescript  (`npm install -g typescript`)
 * VS Code (recommended) (https://code.visualstudio.com/)
+  * ESLint extension (https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 # How to Build
 1. 'abc' is just placeholder text for your publisher prefix, do a find and replace to set it to the value you will be using 
 1. `npm install`

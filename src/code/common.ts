@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import FormContext = Xrm.FormContext;
 import Control = Xrm.Controls.Control;
 import UiCanSetDisabledElement = Xrm.Controls.UiCanSetDisabledElement;
@@ -71,7 +73,7 @@ export function displayAlert(titleText, bodyText, buttonText) {
 }
 
 export function showHideAttribute(formContext: Xrm.FormContext, attributeName: string, isVisible: boolean) {
-    var attr = formContext.getAttribute(attributeName);
+    const attr = formContext.getAttribute(attributeName);
     if (attr) {
         attr.controls.forEach((control: any) => {
             if (control.setVisible) {
@@ -81,7 +83,7 @@ export function showHideAttribute(formContext: Xrm.FormContext, attributeName: s
     }
 }
 export function requireAttribute(formContext: FormContext, attributeName: string, isRequired: boolean) {
-    var attr = formContext.getAttribute(attributeName);
+    const attr = formContext.getAttribute(attributeName);
     if (attr) {
         const requirementLevel = isRequired ? "required" : "none"
         attr.setRequiredLevel(requirementLevel);
@@ -111,14 +113,14 @@ export function refreshGrid(formContext: FormContext, gridName: string) {
 }
 export function hasRole(roleName: string): boolean {
     const roles = Xrm.Utility.getGlobalContext().userSettings.roles;
-    var role = roles.get(x => x.name.toUpperCase() === roleName.toUpperCase());
-    var result = role.length > 0;
+    const role = roles.get(x => x.name.toUpperCase() === roleName.toUpperCase());
+    const result = role.length > 0;
     return result;
 }
 
 export function setFieldEnabled(formContext: Xrm.FormContext, fieldName: string, enabled: boolean) {
-    var attribute = formContext.getAttribute(fieldName);
-    var disableableControlTypes: string[] = [
+    const attribute = formContext.getAttribute(fieldName);
+    const disableableControlTypes: string[] = [
         StandardControlType.Standard,
         StandardControlType.Lookup,
         StandardControlType.OptionSet,
@@ -128,7 +130,7 @@ export function setFieldEnabled(formContext: Xrm.FormContext, fieldName: string,
     if (attribute) {
         attribute.controls.forEach((control: Control) => {
             if (disableableControlTypes.includes(control.getControlType())) {
-                let canDisable = control as unknown as UiCanSetDisabledElement;
+                const canDisable = control as unknown as UiCanSetDisabledElement;
                 canDisable.setDisabled(!enabled);
             }
         });
@@ -136,7 +138,7 @@ export function setFieldEnabled(formContext: Xrm.FormContext, fieldName: string,
 }
 
 export function enableFieldsForUserRoles(formContext: Xrm.FormContext, requiredRoles: string[], fieldNames: string[]): void {
-    var canEdit = requiredRoles.some(hasRole);
+    const canEdit = requiredRoles.some(hasRole);
     fieldNames.forEach(fieldNames => setFieldEnabled(formContext, fieldNames, canEdit));
 }
 
@@ -149,7 +151,7 @@ export function disableFormFields(formContext: FormContext, shouldDisable: boole
 }
 
 export function setDisabled(formContext: Xrm.FormContext, fieldName, isDisabled: boolean) {
-    var attribute = formContext.getAttribute(fieldName);
+    const attribute = formContext.getAttribute(fieldName);
     if (attribute) {
         attribute.controls.forEach((control: any) => {
             if (control.setDisabled) {
