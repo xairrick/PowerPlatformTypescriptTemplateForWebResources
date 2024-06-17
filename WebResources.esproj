@@ -1,4 +1,7 @@
-<Project>
-<Sdk Name="Microsoft.VisualStudio.JavaScript.SDK" Version="1.0.1147595" />
-
+﻿<Project>
+  <Sdk Name="Microsoft.VisualStudio.JavaScript.SDK" Version="1.0.1147595" />
+  <ItemGroup>
+    <Script Include="**" Exclude="*.esproj;**\node_modules\**;abc_\**" />
+    <TypeScriptConfiguration Remove="abc_\**" />
+  </ItemGroup>
 </Project>
