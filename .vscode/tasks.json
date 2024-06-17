@@ -3,6 +3,13 @@
 	"tasks": [
 		{
 			"type": "npm",
+			"script": "install",
+			"problemMatcher": [],
+			"label": "npm: install",
+			"detail": "npm install"
+		},
+		{
+			"type": "npm",
 			"script": "build",
 			"group": {
 				"kind": "build",
@@ -10,14 +17,16 @@
 			},
 			"problemMatcher": [],
 			"label": "npm: build",
-			"detail": "webpack --config webpack.dev.js"
+			"detail": "webpack --config webpack.dev.js",
+			"dependsOn": ["npm: install"]
 		},
 		{
 			"type": "npm",
 			"script": "start",
 			"problemMatcher": [],
 			"label": "npm: start",
-			"detail": "webpack --watch --config webpack.dev.js"
+			"detail": "webpack --watch --config webpack.dev.js",
+			"dependsOn": ["npm: install"]
 		}
 	]
 }

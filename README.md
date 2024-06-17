@@ -22,6 +22,11 @@ This is a template for transpiling typescript into javascript that will be unsed
 1. `npm run build`  
 To auto build on save use `npm run start`  
 To build the production version use `npm run dist`
+### Building from Visual Studio Code
+`<ctrl><shift>b` - This automatically runs the `npm install`  and `npm run build` commands.
+
+`<alt>t` then `r` - to see all build tasks
+
 # Adding a new javascript file
 1. Create the file in `src/code` folder as typescript file (.ts).  
 The filename (minus extension) will also be the module name (aka namespace).   So if you add `account.ts`,  you get a file named `abc_\scripts\account.js` that has a namespace of `abc.account.*`  
