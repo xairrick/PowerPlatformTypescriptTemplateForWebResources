@@ -30,4 +30,3 @@ function relationshipTypeAttrOnChange(executionContext: EventContext) {
 		Common.displayAlert("Field Changed", "Hey Buddy, you changed a field", "OK");
 	}
 }
-
