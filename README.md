@@ -27,7 +27,10 @@ To build the production version use `npm run dist`
 
 `<alt>t` then `r` - to see all build tasks
 ### Building from Visual Studio 2022
-The .esproj file can be opened by VS2022 (17.5).  Visual Studio will execute `npm run build` when the build is started, but you still need to manually execute `npm install` at least once prior to get all the build tools.
+The .esproj file can be opened by VS2022 (17.5).  Visual Studio will execute `npm install` & `npm run build` when building.
+
+### Building with MSBUILD or dotnet
+`msbuild` & `dotnet build` will also execute `npm install` & `npm run build`.
 
 # Adding a new javascript file
 1. Create the file in `src/code` folder as typescript file (.ts).  
