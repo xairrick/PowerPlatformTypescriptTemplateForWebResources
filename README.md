@@ -44,8 +44,8 @@ In the AutoResponder tab
 1. Check Enable rules
 1. Check Unmatched requests passthrough
 1. Rule Editor
-    1. ``` REGEX:.+/abc_\/scripts/(.*) ```
-    1. ``` c:\workspace\projects\ABC\System\Development\Source\WebResources\abc_\scripts\$1 ```  
+    1. ``` REGEX:.+/abc_\/(scripts|assets)/(.*)```
+    1. ``` c:\workspace\projects\ABC\System\Development\Source\WebResources\abc_\$1\$2 ```  
     (update thes folder location to match your system)
 
 
