@@ -53,15 +53,22 @@ You can/should transplie the typescript in your CI/CD pipeline (and don't checki
 
 Sample of what I use in DevOps pipelines
 ```
-  - task: JoeJulik.install-node-and-npm-task.custom-build-release-task.NodeAndNpmTool@1
-    displayName: "Install Node & NPM"
-  - script: npm install -g typescript
-    displayName: "Install Typescript"
-  - script: npm install
-    workingDirectory: System/Development/Source/WebResources
-    displayName: "WebResources Restore"
-  - script: npm run dist
-    workingDirectory: System/Development/Source/WebResources
-    displayName: "WebResources Build"
+parameters:
+  - name: WebResourcesDir
+    displayName: WebResourcesDir
+    type: string
+    default: Source/WebResources
+
+
+- task: NodeTool@0
+  displayName: Install Node JS tools
+  inputs:
+    versionSpec: '20.x'
+- script: npm install
+  workingDirectory: ${{ parameters.WebResourcesDir }}
+  displayName: "WebResources Restore"
+- script: npm run dist
+  workingDirectory: ${{ parameters.WebResourcesDir }}
+  displayName: "WebResources Build"
 ```
 The transpiled javascript should then be mapped into you solution file  [see more info](https://docs.microsoft.com/en-us/power-platform/alm/solution-packager-tool#use-the-map-command-argument)
