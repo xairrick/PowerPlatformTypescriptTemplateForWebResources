@@ -37,7 +37,7 @@ module.exports =
         plugins: [
             new CleanWebpackPlugin(),
             new CopyPlugin({
-                patterns: [{from: "src/assets", to: `${publisher}_/../assets` }],
+                patterns: [{from: "src/assets", to: `${publisher}_/../../assets` }],
               }),
         ],
         resolve: {

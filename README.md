@@ -13,7 +13,6 @@ This is a template for transpiling typescript into javascript that will be unsed
 1. Webpack will transpile the **TypeScript**, bundle the code into one javascript file, place that file in  the `abc_\scripts`.
 # Requirements
 * node & npm  (https://nodejs.org/en/download/)
-* typescript  (`npm install -g typescript`)
 * VS Code (recommended) (https://code.visualstudio.com/)
   * ESLint extension (https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 # How to Build
