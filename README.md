@@ -67,6 +67,10 @@ parameters:
 - script: npm install
   workingDirectory: ${{ parameters.WebResourcesDir }}
   displayName: "WebResources Restore"
+## Fail the build if there are any ESLint errors
+#- script: npx eslint ./src/code/**
+#  workingDirectory: ${{ parameters.WebResourcesDir }}
+#  displayName: "WebResources ESLint"
 - script: npm run dist
   workingDirectory: ${{ parameters.WebResourcesDir }}
   displayName: "WebResources Build"

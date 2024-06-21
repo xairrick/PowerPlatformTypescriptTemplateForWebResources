@@ -27,6 +27,18 @@
 			"label": "npm: start",
 			"detail": "webpack --watch --config webpack.dev.js",
 			"dependsOn": ["npm: install"]
+		},
+		{
+			"type": "shell",
+			"problemMatcher": ["$eslint-stylish"],
+			"label": "ESLint",
+			"command": "npx eslint ./src/code/**"
+		},
+		{
+			"type": "shell",
+			"problemMatcher": ["$eslint-stylish"],
+			"label": "ESLint:fix",
+			"command": "npx eslint ./src/code/** --fix"
 		}
 	]
 }

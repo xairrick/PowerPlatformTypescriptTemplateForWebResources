@@ -34,7 +34,7 @@ export function areGuidsEqual(left, right) {
 }
 
 export function getNextBusinessDay(): Date {
-    let date = new Date();
+    const date = new Date();
 
     date.setDate(date.getDate() + 1);
     if (date.getDay() === 6) {
