@@ -5,8 +5,16 @@ const CopyPlugin = require('copy-webpack-plugin');
 var glob = require("glob");
 
 function getTypeScriptEntryPoints() {
-    var entry = glob.sync("./src/code/*.{ts,js}", { "ignore": ['./src/code/common.ts'] }).reduce((filelist, filepath) => {
-        filelist[path.parse(filepath).name] = filepath;
+    var entry = glob.sync("./src/code/**/*.{ts,js}", { "ignore": ['./src/code/common.ts'] }).reduce((filelist, filepath) => {
+        const file = path.parse(filepath);
+        const splitPath = file.dir.split('./src/code');
+        const moduleName = splitPath[splitPath.length - 1].replace('/', '');
+        const modulePath = (moduleName === '') ? '' :  `${moduleName}/`;
+        filelist[file.name] = 
+            {   
+                import: filepath,
+                filename: `${modulePath}${file.name}.js`
+            };
         return filelist;
     }, {});
     console.log(entry);
@@ -19,10 +27,10 @@ module.exports =
         devtool: 'source-map',
         entry: getTypeScriptEntryPoints(),
         output: {
-            filename: '[name].js',
-            sourceMapFilename: 'maps/[name].js.map',
+            //filename: '[name]',
+            sourceMapFilename: 'maps/[file].map',
             path: path.resolve(__dirname, `./${publisher}_/scripts`),
-            library: [publisher, '[name]'],
+            library: [publisher, '[name]'],  // TODO need to include the module name
             libraryTarget: 'var'
         },
         module: {
