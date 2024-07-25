@@ -26,10 +26,10 @@ export function lookupValueEquals(lookupValue: Xrm.LookupValue[], guid: string) 
     return results;
 }
 
-const rgx = /[\{\-\}]/g;
 export function areGuidsEqual(left, right) {
-    const txtLeft = left.replace(rgx, '').toLowerCase();
-    const txtRight = right.replace(rgx, '').toLowerCase();
+    const separators = /[\{\-\}]/g;
+    const txtLeft = left.replace(separators, '').toLowerCase();
+    const txtRight = right.replace(separators, '').toLowerCase();
     return txtLeft === txtRight;
 }
 
