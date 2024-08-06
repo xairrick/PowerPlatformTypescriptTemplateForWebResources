@@ -33,7 +33,7 @@ The .esproj file can be opened by VS2022 (17.5).  Visual Studio will execute `np
 
 # Adding a new javascript file
 1. Create the file in `src/code` folder as typescript file (.ts).  
-The filename (minus extension) will also be the module name (aka namespace).   So if you add `account.ts`,  you get a file named `abc_\scripts\account.js` that has a namespace of `abc.account.*`  
+The filename (minus extension) will also be the module name (aka namespace).   So if you add `account.ts`,  you get a file named `abc_/scripts/account.js` that has a namespace of `abc.account.*`  
 **NOTE:** the casing on the filename is important, as it will carry over to the namespace (eg `workOrder.ts` will have the namespace `abc.workOrder`)
 1. `npm run build` 
 # Using the javascript WebResource in a Model Driven form
